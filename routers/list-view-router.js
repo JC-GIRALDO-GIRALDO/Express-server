@@ -5,6 +5,7 @@ const path = require("path");
 const tasksFilePath = path.join(__dirname, "../tasks.json");
 
 // Ruta para listar tareas completas
+// http://localhost:3000/list-view/completed
 router.get("/completed", (req, res) => {
   try {
     const data = fs.readFileSync(tasksFilePath, "utf8");
@@ -18,6 +19,7 @@ router.get("/completed", (req, res) => {
 });
 
 // Ruta para listar tareas incompletas
+// http://localhost:3000/list-view/incomplete
 router.get("/incomplete", (req, res) => {
   try {
     const data = fs.readFileSync(tasksFilePath, "utf8");
