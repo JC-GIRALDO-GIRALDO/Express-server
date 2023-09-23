@@ -5,6 +5,11 @@ const path = require("path");
 const listViewRouter = require("./routers/list-view-router");
 const listEditRouter = require("./routers/list-edit-router");
 
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 app.use(express.json());
 
 const tasksFilePath = path.join(__dirname, "tasks.json");

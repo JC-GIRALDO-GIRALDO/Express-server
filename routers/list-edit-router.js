@@ -64,6 +64,7 @@ router.delete("/delete/:id", (req, res) => {
 
 // Ruta para actualizar una tarea (marcar como completada o editar descripción)
 // http://localhost:3000/list-edit/update/id-de-la-tarea
+
 /*
 "isCompleted": false,
 "name": "Tarea",
