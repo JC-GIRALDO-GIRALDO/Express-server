@@ -7,8 +7,6 @@ const tasksFilePath = path.join(__dirname, "../tasks.json");
 // Middleware para validar parámetros
 router.use("/:param", (req, res, next) => {
   const param = req.params.param;
-  // Validar que los parámetros sean correctos según tus criterios
-  // Por ejemplo, si necesitas validar un parámetro específico:
   if (param === "completed" || param === "incomplete") {
     next();
   } else {

@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 const path = require("path");
+const cors = require("cors");
+const authRouter = require("./routers/auth-router");
+const tasksRouter = require("./routers/tasks-router");
 const listViewRouter = require("./routers/list-view-router");
 const listEditRouter = require("./routers/list-edit-router");
 
@@ -11,6 +14,11 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 app.use(express.json());
+app.use(cors()); //pendiente
+app.use("/auth", authRouter);
+app.use("/tasks", tasksRouter);
+app.use("/list-view", listViewRouter);
+app.use("/list-edit", listEditRouter);
 
 const tasksFilePath = path.join(__dirname, "tasks.json");
 
