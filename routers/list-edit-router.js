@@ -18,6 +18,13 @@ router.post("/create", (req, res) => {
     const data = fs.readFileSync(tasksFilePath, "utf8");
     const tasks = JSON.parse(data);
     const { name, description } = req.body;
+
+    if (!name || !description) {
+      return res.status(400).json({
+        error: "Solicitud POST con cuerpo vacío o atributos faltantes",
+      });
+    }
+
     const newTask = {
       id: uuidv4(),
       isCompleted: false,
@@ -71,6 +78,12 @@ router.put("/update/:id", (req, res) => {
 
     if (!task) {
       return res.status(404).json({ error: "Tarea no encontrada" });
+    }
+
+    if (!req.body || (!req.body.name && !req.body.description)) {
+      return res.status(400).json({
+        error: "Solicitud PUT con cuerpo vacío o atributos faltantes",
+      });
     }
 
     if (req.body.description) {

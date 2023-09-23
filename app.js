@@ -9,6 +9,19 @@ app.use(express.json());
 
 const tasksFilePath = path.join(__dirname, "tasks.json");
 
+// Middleware para validar métodos HTTP válidos
+app.use((req, res, next) => {
+  if (
+    req.method !== "GET" &&
+    req.method !== "POST" &&
+    req.method !== "PUT" &&
+    req.method !== "DELETE"
+  ) {
+    return res.status(400).json({ error: "Método HTTP no válido" });
+  }
+  next();
+});
+
 app.get("/tasks", (req, res) => {
   try {
     const data = fs.readFileSync(tasksFilePath, "utf8");
