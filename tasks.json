@@ -1,7 +1,8 @@
 [
   {
-    "id": 123456,
+    "id": "7088c362-7f24-46cc-8c3c-25ed10e1761a",
     "isCompleted": false,
-    "description": "Walk the dog"
+    "name": "Tarea importante",
+    "description": "Completar la tarea antes de la fecha límite ojo"
   }
 ]
