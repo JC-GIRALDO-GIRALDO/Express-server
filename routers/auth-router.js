@@ -27,7 +27,7 @@ router.post("/login", (req, res) => {
 
   // Crear y firmar el token JWT
   const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, {
-    expiresIn: "1h", // Tiempo de expiración del token (1 hora)
+    expiresIn: "1h",
   });
 
   res.json({ token });
